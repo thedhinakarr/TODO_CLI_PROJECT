@@ -1,0 +1,10 @@
+[
+    {
+        "email": "d@g.com",
+        "username": "danny",
+        "password": "$2b$12$0uKyI7I01xOuMa0hDZg3YeSxQG5iwxbaDfMiLNNFb2yy/rfB5kgIO",
+        "location": "Hyderabad",
+        "phone": 9097819999,
+        "todos": []
+    }
+]
