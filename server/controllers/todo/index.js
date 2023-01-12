@@ -43,9 +43,21 @@ router.post("/add", authMiddleWare, async (req, res) => {
 
 })
 
-router.post("/edit", authMiddleWare, (req, res) => {
+router.post("/edit", authMiddleWare, async (req, res) => {
     try {
-        res.send("todo edit called.")
+       console.log(req.headers)
+       let fileData = await fs.readFile("data.json")
+       fileData = JSON.parse(fileData)
+
+       //Find the user's todo to display...
+       let foundUser = fileData.find(ele=> ele.email == req.payload.email)
+
+       
+
+       if(!foundUser){
+           res.status(401).json({"message":"unauth."})
+       }
+
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: "Internal Server Error" })
@@ -53,9 +65,25 @@ router.post("/edit", authMiddleWare, (req, res) => {
 
 })
 
-router.post("/view", authMiddleWare, (req, res) => {
+router.post("/view", authMiddleWare, async (req, res) => {
     try {
-        res.send("todo view called.")
+        console.log(req.payload)
+        let fileData = await fs.readFile("data.json")
+        fileData = JSON.parse(fileData)
+
+        //Find the user's todo to display...
+        let foundUser = fileData.find(ele=> ele.email == req.payload.email)
+
+        if(!foundUser){
+            res.status(401).json({"message":"unauth."})
+        }
+
+        let todo = foundUser.todos
+
+        console.table(todo)
+
+        res.json(todo)
+
     } catch (error) {
 
     }
