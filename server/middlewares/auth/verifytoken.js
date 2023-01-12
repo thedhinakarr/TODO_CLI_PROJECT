@@ -1,12 +1,12 @@
 import jwt from "jsonwebtoken"
 
-const privateKey = "codeforIndia"
+const privateKey = "codeforindia"
 
 function authMiddleWare(req,res,next){
      try {
         //Fetch the Token from Headers
-        
-        let token = req[Symbol(kHeaders)]['auth-token'];
+
+        let token = req.headers['auth-token'];
         //Verify the token 
         let payload = jwt.verify(token, privateKey);
         req.payload = payload;

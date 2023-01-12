@@ -5,6 +5,36 @@
         "password": "$2b$12$0uKyI7I01xOuMa0hDZg3YeSxQG5iwxbaDfMiLNNFb2yy/rfB5kgIO",
         "location": "Hyderabad",
         "phone": 9097819999,
-        "todos": []
+        "todos": [
+            {
+                "todoName": "hit",
+                "isCompleted": false,
+                "todo_id": " 8oh3EdC4xVLI"
+            },
+            {
+                "todoName": "slit",
+                "isCompleted": false,
+                "todo_id": " dY6LYbBBpAZJ"
+            }
+        ]
+    },
+    {
+        "email": "k@g.com",
+        "username": "danny",
+        "password": "$2b$12$Co0xGQniEWR9eEK85l39J.4uKPamdHYxgy29kMmc0GJXj7XNyFz0a",
+        "location": "Hyderabad",
+        "phone": 9097819999,
+        "todos": [
+            {
+                "todoName": "shit",
+                "isCompleted": false,
+                "todo_id": " vPSOfyGQgFNx"
+            },
+            {
+                "todoName": "hit",
+                "isCompleted": false,
+                "todo_id": " DVskNnQPsIq3"
+            }
+        ]
     }
 ]

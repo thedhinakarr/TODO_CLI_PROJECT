@@ -6,7 +6,7 @@ import fs from "fs/promises"
 import bcrypt from "bcrypt"
 import jwt from "jsonwebtoken"
 import {userRegistrationValidation, userLoginValidations , errorMiddleWare } from "/Users/dvk/JSEveryday/dhinakarr/FINALTODOCLI/server/middlewares/validations/validations.js"
-import authMiddleWare from "../../middlewares/auth/verifytoken.js"
+
 
 //Setting up a router, this will redirect routes here.
 
@@ -22,16 +22,15 @@ const router = express.Router(); //THink of this like a port... Connections for 
 
         2.The incoming request body contains the credentials required for the operation to happen.
 
-        3.The UserRegistration is invoked, the request body is checked and are returned to the errorMiddleWare.
+        3.The UserRegistrationValidation() is invoked, the request body is checked and are returned to the errorMiddleWare.
 
         4.The errorMiddleware breaks the pipeline if there are any invalid submission, by returning a response object 
           for dumb mistakes.
 
-
         5.NOTE THAT THIS IS NOT A AUTHENTICATOR. DOES NOT LOGIN OR ANYTHING. ONLY CHECKS
           if the format of the given credentials are valid in the request body. CHECKS FOR DUMB USER ERRORS.
 
-        6. If everythong goes smoothly in the userRegistrationValidation(), the errorMiddleware goes on to the
+        6. If everything goes smoothly in the userRegistrationValidation(), the errorMiddleware goes on to the
             next function which is the next anonymous function after the comma. FUCKIN SMART Isn't it?
  */
 router.post("/register",userRegistrationValidation(),errorMiddleWare,async (req,res)=>{
@@ -51,7 +50,9 @@ router.post("/register",userRegistrationValidation(),errorMiddleWare,async (req,
         /* From this point onwards, we are good to go with user registration. */
 
         password = await bcrypt.hash(password,12);
+        //Hashes the password.
         let newUserData = {email, username, password, location, phone, todos:[]}
+        /* new user is created. */
         fileData.push(newUserData);
 
         await fs.writeFile("data.json", JSON.stringify(fileData));

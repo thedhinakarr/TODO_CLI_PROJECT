@@ -19,6 +19,7 @@ app.get("/",(req,res)=>{
 /* We are gonna route everything */
 
 app.use("/api/user",UserRouter);
+
 app.use("/api/todo",TodoRouter);
 
 /* This keeps the code in app.js very minimal, easy to read and 
@@ -27,3 +28,4 @@ is very advantageous. Route logics will be solved elsewhere. */
 app.listen(port,()=>{
     console.log(`Listening on port ${port}`)
 })
+
