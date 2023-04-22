@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken"
 
-const privateKey = "codeforindia"
+const privateKey = "dhinakar2109"
 
 function authMiddleWare(req,res,next){
      try {
