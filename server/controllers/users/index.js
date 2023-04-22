@@ -91,7 +91,7 @@ router.post("/login",userLoginValidations(),errorMiddleWare,async (req,res)=>{
         }
 
         const payload = { email: req.body.email, username: foundUser.username };
-        const privateKey = "codeforindia";
+        const privateKey = "dhinakar2109";
         const token = jwt.sign(payload, privateKey,{expiresIn:'1h'});
 
         res.status(200).json({ success: "Login is Successful" ,token});
